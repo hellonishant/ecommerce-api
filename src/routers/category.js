@@ -53,7 +53,7 @@ Router.post('/', async (req, res) => {
         status: 'success',
       });
     } catch (err) {
-      res.status(503).json({
+      res.status(500).json({
         message:
           'The server encounterd an error while writing to the database.',
         status: 'error',
@@ -83,6 +83,39 @@ Router.delete('/:categoryId', async (req, res) => {
         data: err,
       });
       logger.error(err);
+    }
+  }
+});
+
+// Put methood to update category
+Router.put('/:categoryId', async (req, res) => {
+  if (req.params.categoryId) {
+    try {
+      const { name, color, icon } = req.body;
+      const updates = {
+        name,
+        color,
+        icon,
+      };
+      const updatedCategory = await Category.findByIdAndUpdate(
+        req.params.categoryId,
+        updates
+      );
+      res.status(200).json({
+        message: 'The requested category has been updated',
+        error: 'error',
+        data: updatedCategory,
+      });
+      logger.log(`Update category ${req.body.categoryId}`);
+    } catch (error) {
+      logger.error(`Can not perform put on categoryId.`);
+      res.status(500).json({
+        message: 'The update can not be done',
+        status: 'error',
+        data: error,
+      });
+    } finally {
+      logger.log(`Served a POST request for ${req.ip}`);
     }
   }
 });
