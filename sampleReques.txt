@@ -1,0 +1,36 @@
+// For post request category
+
+{
+  "name":"Laptop",
+  "description":"HP xxc006x laptop",
+  "richDescription":"Most powerful laptop with core i9-9090k and 24GB of Ram.",
+  "image":"https://in-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/c/0/c06970886.png",
+  "category":"609fea4fa99c021891115d5e",
+  "rating":"22",
+  "countInStock":"40",
+  "isFeatured":"true",
+  "price":"99999",
+  "brand":"HP"
+}
+
+// For post request product
+
+{
+  "name": "Electronics",
+  "icon": "https://in-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/c/0/c06970886.png",
+  "color": "#440303"
+}
+
+// For PUT request on Category  http://localhost:40147/category/609fea4fa99c021891115d5e
+{
+                "name": "New Category",
+                "icon": "https://in-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/c/0/c06970886.png",
+                "color": "#42103c"
+}
+
+// For PUT request for product http://localhost:40147/product/609feaa7a99c021891115d60
+        {
+            "name": "Brand New Shit",
+            "description": "HP xxc001x laptop",
+            "category": "609fea4fa99c021891115d5e"
+        },
